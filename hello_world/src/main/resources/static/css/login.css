@@ -1,0 +1,81 @@
+/* body {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    font-family: Arial, sans-serif;*/
+/*    background-color: #F8F8F8;*/
+/*}*/
+
+/*.container {*/
+/*    width: 400px;*/
+/*    margin: 0 auto;*/
+/*    padding: 40px;*/
+/*    background-color: #FFF;*/
+/*    border-radius: 8px;*/
+/*    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+/*.logo {*/
+/*    display: block;*/
+/*    margin: 0 auto;*/
+/*    max-width: 150px;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/*.title {*/
+/*    text-align: center;*/
+/*    color: #333;*/
+/*    margin-bottom: 30px;*/
+/*}*/
+
+/*.form-group {*/
+/*    margin-bottom: 20px;*/
+/*    text-align: right;*/
+/*}*/
+
+/*label {*/
+/*    font-weight: bold;*/
+/*    display: block;*/
+/*    margin-bottom: 5px;*/
+/*    color: #777;*/
+/*}*/
+
+/*input[type="email"], input[type="password"] {*/
+/*    padding: 10px;*/
+/*    border-radius: 4px;*/
+/*    border: 1px solid #CCC;*/
+/*    width: 100%;*/
+/*    text-align: right;*/
+/*    font-size: larger;*/
+/*}*/
+
+
+/*input[type="submit"] {*/
+/*    padding: 10px;*/
+/*    background-color: #FF6F00;*/
+/*    color: #FFF;*/
+/*    border: none;*/
+/*    border-radius: 4px;*/
+/*    cursor: pointer;*/
+/*    width: 100%;*/
+/*}*/
+
+/*input[type="submit"]:hover {*/
+/*    background-color: #FF9023;*/
+/*}*/
+
+
+
+/*.signup-link {*/
+/*    text-align: center;*/
+/*    color: #777;*/
+/*    margin-top: 20px;*/
+/*}*/
+
+/*.signup-link a {*/
+/*    color: #FF6F00;*/
+/*    text-decoration: none;*/
+/*}*/
+
+/*.signup-link a:hover {*/
+/*    text-decoration: underline;*/
+/*}*/

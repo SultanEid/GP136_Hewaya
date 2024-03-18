@@ -2,7 +2,7 @@ package com.hewaya.hello_world.controller;
 
 
 
-import com.hewaya.hello_world.entity.Hobbyist;
+import com.hewaya.hello_world.entity.HobbyistEntity;
 import com.hewaya.hello_world.service.HobbyistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,31 +17,47 @@ public class HewayaController {
     @Autowired
     private HobbyistService hobbyistService;
 
-    @PostMapping("/addHobbyist")
-    public Hobbyist addOneHobbyist (@RequestBody Hobbyist hobbyist){
-         return hobbyistService.saveHobbysit(hobbyist);
-    }
-    @PostMapping("/addHobbyists")
-    public Hobbyist addHobbyists (@RequestBody List <Hobbyist> hobbyists){
-        //here I add (Hobbyist)
-        return (Hobbyist) hobbyistService.saveHobbysits(hobbyists);
-    }
 
+    @PostMapping("/addHobbyist")
+    public HobbyistEntity addOneHobbyist (@RequestBody HobbyistEntity hobbyist){
+        return hobbyistService.saveHobbysit(hobbyist);
+    }
+    //here I think it list
+    @PostMapping("/addHobbyists")
+    public HobbyistEntity addHobbyists (@RequestBody List <HobbyistEntity> hobbyists){
+        return (HobbyistEntity) hobbyistService.saveHobbysits(hobbyists);
+    }
 
     @GetMapping("/Hobbyists")
-    public List<Hobbyist> getHobbyist(){
+    public List<HobbyistEntity> getHobbyist(){
         return hobbyistService.getHobbyists();
     }
 
     @GetMapping("/HobbyistsById/{id}")
-    public Hobbyist findHobbyistById(@PathVariable int id){
+    public HobbyistEntity findHobbyistById(@PathVariable int id){
         return hobbyistService.getHobbyistById(id);
     }
 
-    @GetMapping("/HobbyistsByName/{name}")
-    public Hobbyist findHobbyistById(@PathVariable String name){
-        return hobbyistService.getHobbyistByName(name);
+    @GetMapping("/HobbyistsByUsername/{username}")
+    public HobbyistEntity findHobbyistByUsername(@PathVariable String username){
+        return hobbyistService.getHobbyistByUsername(username);
     }
+
+    @GetMapping("/checkUsername/{username}")
+    public boolean checkUsername(@PathVariable String username){
+        return hobbyistService.isUsernameExists(username);
+    }
+    @GetMapping("/checkEmail/{email}")
+    public boolean checkEmail(@PathVariable String email){
+        return hobbyistService.isEmailExists(email);
+    }
+    @GetMapping("/checkPassword/{password}")
+    public boolean checkPassword(@PathVariable String password){
+        return hobbyistService.isPasswordExists(password);
+    }
+
+
+
 
     @DeleteMapping("/delete/{id}")
     public String deleteHobbyist(@PathVariable int id){
@@ -49,7 +65,7 @@ public class HewayaController {
     }
 
     @PutMapping("/updateHobbyist")
-    public Hobbyist updateHobbyistInform(Hobbyist hobbyist){
+    public HobbyistEntity updateHobbyistInform(@RequestBody HobbyistEntity hobbyist){
     return hobbyistService.updateHobbyistInform(hobbyist);
     }
 

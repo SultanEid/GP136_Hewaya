@@ -1,6 +1,5 @@
 package com.hewaya.hello_world.entity;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.GeneratedValue;
@@ -14,8 +13,12 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Hobbyist {
+public class HobbyistEntity {
+    //for Springboot
+    //firstName
 
+    //for Database
+    //first_name
     @Id
     @GeneratedValue
     private int user_id;
