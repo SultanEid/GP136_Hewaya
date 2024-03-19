@@ -1,6 +1,7 @@
 package com.hewaya.hello_world.controller;
 
 import com.hewaya.hello_world.entity.HobbyistEntity;
+import com.hewaya.hello_world.service.HobbyistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,20 +9,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
+
+//this class deal with html page and treat directly with HewayaController to use the method CRUD
 @Controller
 public class HewayahUI {
 
         @Autowired
         private HewayaController hewayaController;
-
+        @Autowired
+        private HobbyistService hobbyistService;
+        //to display signup page
         @GetMapping("/signup")
         public String index() {
             return "signup";
         }
-
+        //here to save user data if the username and email not in the database
+        // then store it in DB if not then display error messsage
         @PostMapping ("/signup")
         public String signUp(@ModelAttribute HobbyistEntity hobbyist, Model model) {
-
 
             if (hobbyist.getPassword().length() > 7 && hewayaController.checkUsername(hobbyist.getUsername()) !=true) {
                 hewayaController.addOneHobbyist(hobbyist);
@@ -45,20 +50,23 @@ public class HewayahUI {
             }
         }
 
-
+        //here to display login page with GetMapping
         @GetMapping("/login")
-        public String login(@ModelAttribute HobbyistEntity hobbyist, Model model) {
+        public String loginPage() {
+            return "login";
+        }
+        //here to send email and password to check if true then go to home page
+        // if not then remain in login page and display message
+        @PostMapping("/login")
+        public String loginSubmit(@ModelAttribute HobbyistEntity hobbyist, Model model) {
+            boolean validInform = hobbyistService.isVaildInoform(hobbyist.getEmail(), hobbyist.getPassword());
 
-            if(hewayaController.checkEmail(hobbyist.getEmail()) ==false || hewayaController.checkPassword(hobbyist.getPassword()) ==false){
-                model.addAttribute("usernameANDpassword", "username or password inccorrct!");
+            if (validInform) {
+                return "home";
+            } else {
+                model.addAttribute("emailAndPassword", "email or password incorrect!");
                 return "login";
             }
-            else{
-                return "home";
-            }
         }
-
-
-
 
     }

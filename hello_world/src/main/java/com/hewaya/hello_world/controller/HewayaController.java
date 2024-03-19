@@ -51,10 +51,10 @@ public class HewayaController {
     public boolean checkEmail(@PathVariable String email){
         return hobbyistService.isEmailExists(email);
     }
-    @GetMapping("/checkPassword/{password}")
-    public boolean checkPassword(@PathVariable String password){
-        return hobbyistService.isPasswordExists(password);
-    }
+//    @GetMapping("/checkPassword/{password}")
+//    public boolean checkEmailAndPassword(@PathVariable String password){
+//        return hobbyistService.isVaildInoform(password);
+//    }
 
 
 
