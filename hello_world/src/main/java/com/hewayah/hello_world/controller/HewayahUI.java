@@ -1,7 +1,7 @@
-package com.hewaya.hello_world.controller;
+package com.hewayah.hello_world.controller;
 
-import com.hewaya.hello_world.entity.HobbyistEntity;
-import com.hewaya.hello_world.service.HobbyistService;
+import com.hewayah.hello_world.entity.HobbyistEntity;
+import com.hewayah.hello_world.service.HobbyistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

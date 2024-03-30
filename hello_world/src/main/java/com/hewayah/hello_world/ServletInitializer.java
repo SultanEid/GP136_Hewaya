@@ -1,4 +1,4 @@
-package com.hewaya.hello_world;
+package com.hewayah.hello_world;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

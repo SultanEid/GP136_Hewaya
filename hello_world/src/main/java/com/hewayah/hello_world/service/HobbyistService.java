@@ -1,7 +1,7 @@
-package com.hewaya.hello_world.service;
+package com.hewayah.hello_world.service;
 
-import com.hewaya.hello_world.repository.HobbyistRepo;
-import com.hewaya.hello_world.entity.HobbyistEntity;
+import com.hewayah.hello_world.repository.HobbyistRepo;
+import com.hewayah.hello_world.entity.HobbyistEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

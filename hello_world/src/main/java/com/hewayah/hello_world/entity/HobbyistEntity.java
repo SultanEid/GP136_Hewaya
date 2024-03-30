@@ -1,4 +1,4 @@
-package com.hewaya.hello_world.entity;
+package com.hewayah.hello_world.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;

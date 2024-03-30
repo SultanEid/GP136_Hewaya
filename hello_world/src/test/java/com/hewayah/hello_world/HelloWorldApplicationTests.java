@@ -1,4 +1,4 @@
-package com.hewaya.hello_world;
+package com.hewayah.hello_world;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
