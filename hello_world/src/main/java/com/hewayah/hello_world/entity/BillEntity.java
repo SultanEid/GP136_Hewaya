@@ -30,5 +30,8 @@ public class BillEntity {
     @Column(name = "event_id")
     private Integer eventId;
 
+    @Column(name = "is_pay")
+    private boolean isPay;
+
 
 }
