@@ -17,7 +17,7 @@ public class ServiceProviderEntity {
     @Column(name = "service_provider_username", length = 255)
     private String serviceProviderUsername;
 
-
+    //name the colums in table
     @Column(name = "bio")
     private String bio;
 }
