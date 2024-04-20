@@ -1,7 +1,11 @@
-body {
+/* body {
     background-color: #f4f4f4;
     font-family: Arial, sans-serif;
-    /* background-image:url("../../images/wallpaper.png"); */
+    /* background-image:url("../../images/wallpaper.png");
+ } */
+
+body{
+    font-family: "Cairo", Arial, sans-serif;
 }
 
 header {
@@ -26,7 +30,7 @@ header img{
 
 }
 
-.container {
+.containerHeader {
     max-width: 800px;
     margin: 0 auto;
     text-align: center;

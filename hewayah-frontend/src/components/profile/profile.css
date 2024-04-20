@@ -1,0 +1,100 @@
+header .logo img{
+    width:100px;
+    height: 100px;
+    position: relative;
+    left:480px;
+
+    /* padding:100px; */
+}
+body{
+    background-color: #FAF1E6;
+}
+
+/* header{
+    background-color: #FAF1E6;
+} */
+/* .profile , header{
+    /* background-color: #FAF1E6; */
+/* } */
+.imgContainer{
+    position: relative;
+    bottom:40px;
+}
+.imgContainer img{
+    
+    width:190px;
+    height:190px;
+    border-radius: 50%;
+    position: relative;
+    right:50px;
+    border: 1px solid black;
+}
+.imgContainer .joinDate{
+    margin-right:85px;
+    font-size:14px;
+    padding-bottom: 10px;
+}
+.profile{
+    margin-top: 50px;
+    display: flex;
+}
+.numbers{
+    position: relative;
+    right:100px;
+    padding-top: 10px;
+    display:flex;
+}
+.name{
+    padding:0 10px;
+}
+.name .text {
+    font-size: 12px;
+    position: relative;
+    top:-5px;
+    text-align: center;
+}
+.profileDescription{
+    margin:0 100px;
+}
+.titleName h3{
+    font-weight: bold;
+}
+
+.Description{
+    font-size: 25px;
+}
+.servicePinformation{
+    position: relative;
+    background-color: #FAF1E6;
+    height: 100px;
+    bottom:30px;
+}
+.servicePinformation .buttons{
+    display: flex;
+    position: relative;
+    right:20px;
+}
+
+.servicePinformation .buttons .sendButton{
+    padding: 0 20px;
+    /* background-color: #FF9954;  
+    padding:10px 20px;
+    border-radius: 30px; */
+}
+.sendButton a{
+    padding: 0 20px;
+    background-color:#FF9954;
+}
+.followButton a{
+    padding: 0 20px;
+    background-color:#fff;
+}
+.servicePinformation .buttons a {
+    font-size: 25px;
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+    padding:10px 20px;
+    border-radius: 30px;
+    
+}

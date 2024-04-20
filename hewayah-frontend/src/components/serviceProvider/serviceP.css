@@ -1,0 +1,38 @@
+.serviceProviderContainer{
+    width:100px;
+    width:200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    object-fit: cover;
+}
+
+.service-provider-container img{
+    position: relative;
+    border-radius:50% ;
+    width:100px;
+    height:100px;
+    margin: 15px 100px;
+    bottom:50px;
+    border:1px solid black;
+}
+
+.service-provider-name{
+    position: relative;
+    width:100px;
+    top:-90px;
+    
+    right:120px;
+    text-align: center;
+    background-color: rgb(108, 103, 103);
+    border-radius: 20px;
+    padding:0 10px;
+    font-size: small;
+    font-weight: bold;
+}
+
+.timeline{
+    position: relative;
+    right:200px;
+    top:-140px;
+}

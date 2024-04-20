@@ -6,7 +6,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import  Header  from 'react-bootstrap/CardHeader';
 // import  ListGroup  from 'react-bootstrap/ListGroup';
 import Header from "./components/header/header.js";
-
+// import Login from "./components/login/login.js"
+import ServiceProviderLogo from './components/serviceProvider/serviceP.js';
 import Search from "./components/searchBar/search.js"
 // import Image from '../public/images';
 export default function App() {
@@ -15,7 +16,12 @@ export default function App() {
     <div>
       <Header/>
       <Search/>
+      <ServiceProviderLogo serviceProvideName="شطرنج العزيزية"/>
+      <ServiceProviderLogo serviceProvideName="شطرنج العزيزية"/>
+      <ServiceProviderLogo serviceProvideName="شطرنج العزيزية"/>
+      <ServiceProviderLogo serviceProvideName="شطرنج العزيزية"/>
     </div>
+    
   );
 }
 
