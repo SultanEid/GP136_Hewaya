@@ -1,44 +1,35 @@
 package com.hewayah.hello_world.controller;
 
-import com.hewayah.hello_world.entity.BillEntity;
-import com.hewayah.hello_world.service.BillDao;
+import com.hewayah.hello_world.model.dto.BillDTO;
+import com.hewayah.hello_world.service.BillService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
-import java.util.Optional;
 
 @RestController
+@RequestMapping("/bills")
 public class BillController {
 
-
+    private final BillService billService;
 
     @Autowired
-    private BillDao billDao ;
+    public BillController(BillService billService) {
+        this.billService = billService;
+    }
 
-    @PostMapping("createBill")
-    public BillEntity createBill(@RequestBody BillEntity billEntity) {
-        return billDao.saveBill(billEntity);
-
+    @PostMapping
+    public ResponseEntity<BillDTO> createBill(@RequestBody @Validated BillDTO billDTO) {
+        BillDTO createdBill = billService.createBill(billDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdBill);
     }
 
     @GetMapping("/{billId}")
-    public Optional<BillEntity> getBillById(@PathVariable Integer billId) {
-        return billDao.getBillById(billId);
-
+    public ResponseEntity<BillDTO> getBillById(@PathVariable Integer billId) {
+        BillDTO bill = billService.getBillById(billId);
+        return ResponseEntity.ok(bill);
     }
 
-    @GetMapping("getAllBill")
-    public ResponseEntity<List<BillEntity>> getAllBill() {
-        List<BillEntity> bills = billDao.getAllBills();
-        return ResponseEntity.ok(bills);
-    }
-
-    @DeleteMapping("deleteBill/{billId}")
-    public ResponseEntity<Void> deleteBill(@PathVariable Integer billId) {
-        billDao.deleteBill(billId);
-        return ResponseEntity.noContent().build();
-    }
+    // Other endpoints...
 }

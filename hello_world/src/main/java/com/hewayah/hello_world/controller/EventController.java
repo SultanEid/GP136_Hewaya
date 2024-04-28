@@ -1,42 +1,37 @@
 package com.hewayah.hello_world.controller;
 
-import com.hewayah.hello_world.entity.EventEntity;
-import com.hewayah.hello_world.service.EventDao;
+import com.hewayah.hello_world.model.dto.EventDTO;
+import com.hewayah.hello_world.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.http.HttpStatus;
-//import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
-
 @RestController
+@RequestMapping("/events")
 public class EventController {
+    private final EventService eventService;
+
     @Autowired
-    private EventDao eventDao;
+    public EventController(EventService eventService) {
+        this.eventService = eventService;
+    }
 
     @PostMapping
-    public EventEntity createEvent(@RequestBody EventEntity eventEntity) {
-        return eventDao.saveEvent(eventEntity);
+    public ResponseEntity<EventDTO> createEvent(@RequestBody EventDTO eventDTO) {
+        EventDTO createdEvent = eventService.createEvent(eventDTO);
+        return new ResponseEntity<>(createdEvent, HttpStatus.CREATED);
     }
 
-    @GetMapping("getEventById/{eventId}")
-    public EventEntity getEventById(@PathVariable int eventId) {
-        Optional<EventEntity> event = eventDao.getEventById(eventId);
-        return event.orElse(null);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteEvent(@PathVariable int id) {
+        eventService.deleteEvent(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-
-    @GetMapping("getAllEvents")
-    public List<EventEntity> getAllEvents() {
-        return this.eventDao.getAllEvents();
-
-    }
-
-    @DeleteMapping("deleteEvent/{eventId}")
-    public void deleteEvent(@PathVariable int eventId) {
-        this.eventDao.deleteEvent(eventId);
-
+    @GetMapping("/{id}")
+    public ResponseEntity<EventDTO> getEventById(@PathVariable int id) {
+        EventDTO event = eventService.getEventById(id);
+        return new ResponseEntity<>(event, HttpStatus.OK);
     }
 }
-

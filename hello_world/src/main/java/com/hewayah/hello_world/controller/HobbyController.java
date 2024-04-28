@@ -1,48 +1,51 @@
 package com.hewayah.hello_world.controller;
 
-import com.hewayah.hello_world.entity.HobbyEntity;
-import com.hewayah.hello_world.service.HobbyDao;
-import org.springframework.beans.factory.annotation.*;
-//import org.springframework.http.ResponseEntity;
+import com.hewayah.hello_world.model.dto.HobbyDTO;
+import com.hewayah.hello_world.service.HobbyService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
+@RequestMapping("/hobbies")
 public class HobbyController {
-
+    private final HobbyService hobbyService;
 
     @Autowired
-    private HobbyDao hobbyDao;
-
-
-    @PostMapping("/createHobby")
-    public HobbyEntity createHobby(@RequestBody HobbyEntity hobbyEntity) {
-        return hobbyDao.saveHobby(hobbyEntity);
+    public HobbyController(HobbyService hobbyService) {
+        this.hobbyService = hobbyService;
     }
 
-    @GetMapping("/getHobbyById/{hobbyId}")
-    public HobbyEntity getHobbyById(@PathVariable int hobbyId) {
-        Optional<HobbyEntity> hobby = hobbyDao.getHobbyById(hobbyId);
-        if (hobby.isPresent()) {
-            return hobby.get();
-        }
-        return null;
+    @PostMapping
+    public ResponseEntity<HobbyDTO> createHobby(@RequestBody HobbyDTO hobbyDTO) {
+        HobbyDTO createdHobby = hobbyService.createHobby(hobbyDTO);
+        return new ResponseEntity<>(createdHobby, HttpStatus.CREATED);
     }
 
-    @GetMapping("/getAllHobbies")
-    public List<HobbyEntity> getAllHobbies() {
-        return hobbyDao.getAllHobbies();
+    @PutMapping("/{id}")
+    public ResponseEntity<HobbyDTO> updateHobby(@PathVariable int id, @RequestBody HobbyDTO hobbyDTO) {
+        HobbyDTO updatedHobby = hobbyService.updateHobby(id, hobbyDTO);
+        return new ResponseEntity<>(updatedHobby, HttpStatus.OK);
     }
 
-    @DeleteMapping("/deleteHobbyById/{hobbyId}")
-    public void deleteHobbyById(@PathVariable int hobbyId) {
-        Optional<HobbyEntity> hobby = hobbyDao.getHobbyById(hobbyId);
-        if (hobby.isPresent()) {
-            hobbyDao.deleteHobbyById(hobbyId);
-        }
-
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteHobby(@PathVariable int id) {
+        hobbyService.deleteHobby(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<HobbyDTO> getHobbyById(@PathVariable int id) {
+        HobbyDTO hobby = hobbyService.getHobbyById(id);
+        return new ResponseEntity<>(hobby, HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<HobbyDTO>> getAllHobbies() {
+        List<HobbyDTO> hobbies = hobbyService.getAllHobbies();
+        return new ResponseEntity<>(hobbies, HttpStatus.OK);
+    }
 }

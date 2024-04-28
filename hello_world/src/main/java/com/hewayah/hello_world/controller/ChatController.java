@@ -1,37 +1,38 @@
 package com.hewayah.hello_world.controller;
 
-import com.hewayah.hello_world.entity.ChatEntity;
-import com.hewayah.hello_world.service.ChatDao;
+import com.hewayah.hello_world.model.dto.ChatDTO;
+import com.hewayah.hello_world.service.ChatService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/chats")
 public class ChatController {
+    private final ChatService chatService;
+
     @Autowired
-    private ChatDao chatDao;
-
-
-
-    @GetMapping("/getAllChats")
-    public List<ChatEntity> getAllChats() {
-        return chatDao.getAllChats();
+    public ChatController(ChatService chatService) {
+        this.chatService = chatService;
     }
 
-    @GetMapping("/getChatById/{id}")
-    public ChatEntity getChatById(@PathVariable int id) {
-        return chatDao.getChatById(id).orElse(null);
+    @PostMapping
+    public ResponseEntity<ChatDTO> createChat(@RequestBody ChatDTO chatDTO) {
+        ChatDTO createdChat = chatService.createChat(chatDTO);
+        return new ResponseEntity<>(createdChat, HttpStatus.CREATED);
     }
 
-    @PostMapping("/createChat")
-    public void createChat(@RequestBody ChatEntity chat) {
-        chatDao.saveChat(chat);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteChat(@PathVariable Long id) {
+        chatService.deleteChat(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @DeleteMapping("/deleteChat/{id}")
-    public void deleteChat(@PathVariable int id) {
-        chatDao.deleteChatById(id);
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ChatDTO> getChatById(@PathVariable Long id) {
+        ChatDTO chat = chatService.getChatById(id);
+        return new ResponseEntity<>(chat, HttpStatus.OK);
     }
 }

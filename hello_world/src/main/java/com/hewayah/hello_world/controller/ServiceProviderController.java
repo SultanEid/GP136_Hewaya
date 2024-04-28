@@ -1,43 +1,45 @@
 package com.hewayah.hello_world.controller;
 
-import com.hewayah.hello_world.entity.ServiceProviderEntity;
-import com.hewayah.hello_world.service.ServiceProviderDao;
+import com.hewayah.hello_world.model.dto.ServiceProviderDTO;
+import com.hewayah.hello_world.service.ServiceProviderService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-
+@RequestMapping("/service-providers")
 public class ServiceProviderController {
+    private final ServiceProviderService serviceProviderService;
 
     @Autowired
-    private ServiceProviderDao serviceProviderDao;
-
-
-
-    @PostMapping("/createServiceProvider")
-    public ServiceProviderEntity createServiceProvider(@RequestBody ServiceProviderEntity serviceProvider) {
-        return serviceProviderDao.createServiceProvider(serviceProvider);
+    public ServiceProviderController(ServiceProviderService serviceProviderService) {
+        this.serviceProviderService = serviceProviderService;
     }
 
-    @GetMapping("/getAllServiceProviders")
-    public List<ServiceProviderEntity> getAllServiceProviders() {
-        return serviceProviderDao.getAllServiceProviders();
+    @PostMapping
+    public ServiceProviderDTO createServiceProvider(@RequestBody ServiceProviderDTO serviceProviderDTO) {
+        return serviceProviderService.createServiceProvider(serviceProviderDTO);
     }
 
-    @DeleteMapping("/deleteServiceProviderByUsername/{username}")
-    public void deleteServiceProviderByUsername(@PathVariable String username) {
-        serviceProviderDao.deleteByServiceProviderUsername(username);
+    @PutMapping("/{id}")
+    public ServiceProviderDTO updateServiceProvider(@PathVariable Long id, @RequestBody ServiceProviderDTO serviceProviderDTO) {
+        return serviceProviderService.updateServiceProvider(id, serviceProviderDTO);
     }
 
-    @PutMapping("/updateServiceProvider/{username}")
-    public ServiceProviderEntity updateServiceProvider(@PathVariable String username, @RequestBody ServiceProviderEntity serviceProvider) {
-        return serviceProviderDao.updateServiceProvider(username, serviceProvider);
+    @DeleteMapping("/{id}")
+    public void deleteServiceProvider(@PathVariable Long id) {
+        serviceProviderService.deleteServiceProvider(id);
     }
 
-    @GetMapping("/getServiceProvidersByUsername/{username}")
-    public ServiceProviderEntity getServiceProvidersByUsername(@PathVariable String username) {
-        return serviceProviderDao.getServiceProvidersByUsername(username);
+    @GetMapping("/{id}")
+    public ServiceProviderDTO getServiceProviderById(@PathVariable Long id) {
+        return serviceProviderService.getServiceProviderById(id);
+    }
+
+    @GetMapping
+    public List<ServiceProviderDTO> getAllServiceProviders() {
+        return serviceProviderService.getAllServiceProviders();
     }
 }
