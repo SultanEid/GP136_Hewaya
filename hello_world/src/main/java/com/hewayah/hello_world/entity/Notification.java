@@ -1,9 +1,12 @@
-package com.hewayah.hello_world.model.entity;
+package com.hewayah.hello_world.entity;
 
+import jakarta.persistence.*;
 import lombok.Data;
 
-//import javax.persistence.*;
-import jakarta.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 @Data
 @Entity
 @Table(name = "notification")
@@ -13,19 +16,18 @@ public class Notification {
     @Column(name = "notification_id")
     private int notificationId;
 
-    @Column(name = "sender_username")
-    private String senderUsername;
 
-    @Column(name = "receiver_username")
-    private String receiverUsername;
-
+    @NotBlank
+    @Size(max = 255)
     @Column(name = "notification_type")
     private String notificationType;
 
+    @NotBlank
     @Column(name = "notification_message", columnDefinition = "TEXT")
     private String notificationMessage;
 
     @ManyToOne
     @JoinColumn(name = "service_provider_id")
+    @NotNull
     private ServiceProvider serviceProvider;
 }

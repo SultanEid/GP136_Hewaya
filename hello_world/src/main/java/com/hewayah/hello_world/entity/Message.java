@@ -1,10 +1,10 @@
-package com.hewayah.hello_world.model.entity;
+package com.hewayah.hello_world.entity;
 
 import lombok.Data;
 
-//import javax.persistence.*;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+
 @Data
 @Entity
 @Table(name = "message")
@@ -15,22 +15,14 @@ public class Message {
     private int messageId;
 
 
-
-    @Column(name = "sender_username")
-    private String senderUsername;
-
-    @Column(name = "contect", columnDefinition = "text")
+    @Column(name = "content", columnDefinition = "text")
     private String content;
 
     @Column(name = "sent_date")
     private LocalDateTime sentDate;
 
-
-
-
     @ManyToOne
     @JoinColumn(name = "chat_id")
     private Chat chat;
-
 
 }

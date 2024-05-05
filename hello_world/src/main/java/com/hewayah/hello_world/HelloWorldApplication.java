@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 //مارضي يشتغل ال (mapper)غير بهذا النوتيشن
-@ComponentScan(basePackages = "com.hewayah.hello_world.model.mapper")
+//@ComponentScan(basePackages = "com.hewayah.hello_world.model.mapper")
 
 public class HelloWorldApplication {
 

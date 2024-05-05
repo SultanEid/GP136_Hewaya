@@ -1,7 +1,7 @@
 package com.hewayah.hello_world.repository;
 
 
-import com.hewayah.hello_world.model.entity.Booking;
+import com.hewayah.hello_world.entity.Booking;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

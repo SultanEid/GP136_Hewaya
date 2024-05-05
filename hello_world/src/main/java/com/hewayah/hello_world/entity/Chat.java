@@ -1,4 +1,4 @@
-package com.hewayah.hello_world.model.entity;
+package com.hewayah.hello_world.entity;
 import lombok.Data;
 
 //import javax.persistence.*;
