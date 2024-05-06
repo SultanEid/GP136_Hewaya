@@ -26,25 +26,27 @@ public class ServiceProviderService {
     }
 
     public ServiceProvider saveServiceProvider(ServiceProvider serviceProvider) {
+
         return serviceProviderRepository.save(serviceProvider);
     }
 
-    public void updateServiceProvider(Long id, ServiceProvider updatedServiceProvider) {
-        Optional<ServiceProvider> serviceProvider = serviceProviderRepository.findById(id);
-        serviceProvider.ifPresent(existingServiceProvider -> {
-            existingServiceProvider.setServiceProviderUsername(updatedServiceProvider.getServiceProviderUsername());
-            existingServiceProvider.setBio(updatedServiceProvider.getBio());
-            existingServiceProvider.setPassword(updatedServiceProvider.getPassword());
-            existingServiceProvider.setEmail(updatedServiceProvider.getEmail());
-            existingServiceProvider.setDateCreate(updatedServiceProvider.getDateCreate());
-            existingServiceProvider.setDateUpdate(updatedServiceProvider.getDateUpdate());
-            existingServiceProvider.setPhoneNumber(updatedServiceProvider.getPhoneNumber());
-            existingServiceProvider.setServiceProviderName(updatedServiceProvider.getServiceProviderName());
-            serviceProviderRepository.save(existingServiceProvider);
-        });
-    }
+//    public void updateServiceProvider(Long id, ServiceProvider updatedServiceProvider) {
+//        Optional<ServiceProvider> serviceProvider = serviceProviderRepository.findById(id);
+//        serviceProvider.ifPresent(existingServiceProvider -> {
+//            existingServiceProvider.setServiceProviderUsername(updatedServiceProvider.getServiceProviderUsername());
+//            existingServiceProvider.setBio(updatedServiceProvider.getBio());
+//            existingServiceProvider.setPassword(updatedServiceProvider.getPassword());
+//            existingServiceProvider.setEmail(updatedServiceProvider.getEmail());
+////            existingServiceProvider.setDateCreate(updatedServiceProvider.getDateCreate());
+//            existingServiceProvider.setDateUpdate(updatedServiceProvider.getDateUpdate());
+//            existingServiceProvider.setPhoneNumber(updatedServiceProvider.getPhoneNumber());
+//            existingServiceProvider.setServiceProviderName(updatedServiceProvider.getServiceProviderName());
+//            serviceProviderRepository.save(existingServiceProvider);
+//        });
+//    }
 
-    public void deleteServiceProvider(Long id) {
+    public String deleteServiceProvider(Long id) {
         serviceProviderRepository.deleteById(id);
+        return "removed success";
     }
 }
