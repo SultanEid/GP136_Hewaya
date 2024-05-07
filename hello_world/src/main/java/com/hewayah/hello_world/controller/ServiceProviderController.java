@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+
 @RestController
 @RequestMapping
+@CrossOrigin("http://localhost:3000")
 public class ServiceProviderController {
+    @Autowired
     private final ServiceProviderService serviceProviderService;
 
     @Autowired
@@ -32,20 +35,25 @@ public class ServiceProviderController {
         return serviceProvider.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping("ServiceProvider")
-    public ResponseEntity<ServiceProvider> createServiceProvider(@RequestBody ServiceProvider serviceProvider) {
-        ServiceProvider savedServiceProvider = serviceProviderService.saveServiceProvider(serviceProvider);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedServiceProvider);
-    }
+//    @PostMapping("ServiceProvider")
+//    public ResponseEntity<ServiceProvider> createServiceProvider(@RequestBody ServiceProvider serviceProvider) {
+//        ServiceProvider savedServiceProvider = serviceProviderService.saveServiceProvider(serviceProvider);
+//        return ResponseEntity.status(HttpStatus.CREATED).body(savedServiceProvider);
+//    }
+@PostMapping("createServiceProvider")
+public ServiceProvider createServiceProvider(@RequestBody ServiceProvider serviceProvider) {
+      return serviceProviderService.saveServiceProvider(serviceProvider);
 
-    @PutMapping("ServiceProvider/{id}")
-    public ResponseEntity<Void> updateServiceProvider(
-            @PathVariable Long id,
-            @RequestBody ServiceProvider updatedServiceProvider
-    ) {
-        serviceProviderService.updateServiceProvider(id, updatedServiceProvider);
-        return ResponseEntity.noContent().build();
-    }
+}
+
+//    @PutMapping("ServiceProvider/{id}")
+//    public ResponseEntity<Void> updateServiceProvider(
+//            @PathVariable Long id,
+//            @RequestBody ServiceProvider updatedServiceProvider
+//    ) {
+//        serviceProviderService.updateServiceProvider(id, updatedServiceProvider);
+//        return ResponseEntity.noContent().build();
+//    }
 
     @DeleteMapping("ServiceProvider/{id}")
     public ResponseEntity<Void> deleteServiceProvider(@PathVariable Long id) {
