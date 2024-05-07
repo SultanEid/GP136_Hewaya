@@ -4,8 +4,8 @@ import lombok.Data;
 //import javax.persistence.*;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
-
-import java.time.LocalDateTime;
+import java.util.Date;
+//import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -21,7 +21,7 @@ public class Chat {
     @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp
     @Column(name = "create_at")
-    private LocalDateTime dateCreate;
+    private Date dateCreate;
 
 
     @ManyToOne
