@@ -1,0 +1,41 @@
+.search-container{
+    padding:0 30px;
+  
+}
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 50px solid red;
+    position: absolute;
+}
+.title-user{
+    position: relative;
+    top:10px;
+    
+}
+.title-user h2{
+    font-size: 40px;
+    font-weight: bold;    
+}
+.date, .city{
+    padding: 0 30px
+}
+
+.selection select{
+    width:200px;
+    height:45px;
+    /* padding:0 30px; */
+    text-align: center;
+    font-size: 20px;
+}
+
+
+.filter-option{
+    top:620px;
+    display:flex;
+    position: absolute;
+    left:0;
+    left:100px;
+}

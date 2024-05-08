@@ -6,6 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import Login from "../src/components/login/login.js";
 import Signup from "../src/components/signup/signup.js";
 import Profile from "../src/components/profile/profile.js";
+import SignupServiceProvider from "../src/components/signup-serviceP/signup-serviceP.js";
+import Payment from "../src/components/payment/payment.js";
+import SelectHobby from "../src/components/selection/select.js";
+import Forget from "../src/components/forgetPassword/forget.js";
 
 import { createBrowserRouter, 
   RouterProvider,
@@ -32,6 +36,23 @@ import { createBrowserRouter,
       path:"/username/profile",
       element: <Profile/>
   },
+  {
+    path:"/signup/service_provider",
+    element: <SignupServiceProvider/>
+},
+{
+  path:"/payment",
+  element: <Payment/>
+},
+{
+  path:"/select-hobby",
+  element: <SelectHobby/>
+},
+{
+  path:"/forget-password",
+  element: <Forget/>
+},
+  
   ])
   
 

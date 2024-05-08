@@ -1,0 +1,56 @@
+.conatiner-bill{
+    width:230px;
+    height:auto;
+    background-color:#fff;
+    padding:30px 20px;
+    border-radius: 25px;
+    justify-content: center;
+    position: relative;
+    bottom:90px;
+    left:10px;
+    border:1px solid rgba(0,0,0,0.5);
+    margin: 0 50px;
+
+}
+.btn-bill , .btn-book , .btn-cancel{
+    display: flex;
+    justify-content: center ;
+    padding:0 20px;
+    padding-top: 10px;
+}
+button{
+    width:65px;
+    border-radius: 10px;
+    color:#fff;
+    border: none;
+    
+    
+}
+.btn-green{
+    background-color: #156839;
+    width:65px;
+    border-radius: 25px;
+    color:#fff;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+}
+.btn-red{
+    background-color: #FC3131;
+}
+.service-name{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+.text-title{
+    font-size: 16px;
+    font-weight: bold;
+}
+.event-name, .event-date, .event-location, .event-member, .event-price {
+    font-size: 18px;
+}
+
+
+
+

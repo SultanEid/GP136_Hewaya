@@ -1,6 +1,6 @@
 import React from "react";
 import "./header.css";
-import logo from "../../images/HewayaLogo.png";
+import logo from "../../images/logoAR.png";
 import saudiMap from "../../images/saudiMap.png"
 import vision2030 from "../../images/vision2030.png";
 // import Login from "../login/login.js";
@@ -8,10 +8,10 @@ import vision2030 from "../../images/vision2030.png";
 
 
 
-const Header = () => {
-  const text = `هنا حيث الهواية,
-  الصديق,
-  و الترفيه`
+function Header() {
+  
+
+  const isUserLogin = false;
   return (
     <header lang="ar" dir="rtl">
       <div class="containerHeader">
@@ -26,15 +26,9 @@ const Header = () => {
                     
         </div>
         
-        <div class="saudi_map">
-          <img src={saudiMap} alt="map of saudi"/>
-        {/* <h2 class="title">هواية | Hewayah</h2> */}
-        <div class="hewayahStatement" style={{ whiteSpace: "pre-line" }}>
-          {text}
-        </div>
-        </div>
+        <Saudi_Map/>
         
-        <div class="button-container">
+        <div className="button-container">
           <ul>
             <li>
               <a href="#" class="link">
@@ -56,7 +50,20 @@ const Header = () => {
                 من نحن
               </a>
             </li>
-            <li>
+            {isUserLogin? <JoinedButton/> : <JoinButton/>}
+          </ul>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
+
+function JoinButton(){
+  return(
+    <>
+    <li>
               <a href="signup" class="button">
                 انضم الآن
               </a>
@@ -66,11 +73,39 @@ const Header = () => {
                 تسجيل الدخول
               </a>
             </li>
-          </ul>
-        </div>
-      </div>
-    </header>
-  );
-};
+    </>
+  )
+}
 
-export default Header;
+function JoinedButton(){
+  const username = "zidn"
+  return(
+    <>
+    <li>
+              <a href="username/profile" class="button">
+                {username}
+              </a>
+            </li>
+            <li>
+              <a href="/login" class="button">
+                تسجيل الخروج
+              </a>
+            </li>
+    </>
+  )
+}
+
+function Saudi_Map(){
+  const text = `هنا حيث الهواية,
+  الصديق,
+  و الترفيه`
+  return(
+    <div class="saudi_map">
+          <img src={saudiMap} alt="map of saudi"/>
+        {/* <h2 class="title">هواية | Hewayah</h2> */}
+        <div class="hewayahStatement" style={{ whiteSpace: "pre-line" }}>
+          {text}
+        </div>
+        </div>
+  ) 
+}

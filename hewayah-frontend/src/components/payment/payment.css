@@ -1,0 +1,54 @@
+.payment-container{
+    width:30%;
+    justify-content: center ;
+    text-align: center;
+    margin: auto;
+    margin-top: 60px;
+    padding:100px 50px;
+    border-radius: 25px;
+    border:1px solid rgb(0, 0, 0, 0.5);
+    /* background-color: aqua; */
+}
+.payment-input{
+    width:80%;
+    margin: auto;
+    padding:20px;
+}
+.btn-payment{
+    display: grid;
+    padding: 10px 0;
+    justify-content: center;
+
+}
+.sure-btn, .cancel-btn{
+    /* background-color: aqua; */
+    text-decoration: none;
+    width: 300px;
+    border-radius: 0;
+    padding: 10px;
+    border:1px solid rgba(0, 0,0 ,0.5);
+}
+.sure-btn{
+    background-color: rgba(15, 68, 39, 0.5);
+    font-size: 24px;
+    font-weight: bold;
+}
+.cancel-btn{
+    background-color: rgba(94, 135, 211, 0.5);
+    color:#000;
+    font-size: 24px;
+    font-weight: bold;
+}
+.card-date{
+    display: flex;
+    
+}
+.td{
+    width:200px;
+    font-size: 25px;
+}
+
+
+
+
+

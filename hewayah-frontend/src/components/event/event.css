@@ -1,0 +1,83 @@
+.container-event{
+    width:120px;
+    height:80px;
+    background-color: #fff;
+    border-radius: 20px;
+    position: absolute;
+    margin-right: 250px;
+    margin-top: -190px;
+    border:1px solid rgb(0, 0, 0, 0.5);
+}
+
+/* .container-event-all{
+    position: relative;
+    padding:0 100px;
+} */
+.event-link {
+    position: relative;
+    text-decoration: none;
+    color:#000000;
+    /* padding:0 100px; */
+
+}
+.age{
+    position: relative;
+    text-align: center;
+    padding-top:5px;
+    border:1px solid rgb(0, 0, 0, 0.5);
+    font-size: 12px;
+    font-weight: bold;
+    bottom:30px;
+    right:10px;
+    background-color: #FAF1E6;
+    width:30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.time{
+    text-align: center;
+    position: relative;
+    bottom:20px;
+    font-size: 14px;
+}
+.hobby-name{
+    text-align: center;
+    position: relative;
+    bottom:30px;
+    font-size: 18px;
+}
+.number-of-hobbyist{
+    text-align: center;
+    position: relative;
+    bottom:20px;
+    font-size:14px;
+    font-weight: bold;
+}
+.green-event{
+    background-color:#9BC53D;
+}
+.yellow-event{
+    background-color:#FDE74C;
+}
+.blue-event{
+    background-color:#5BC0EB;
+}
+
+/* .container-event::after {
+    background-color: red;
+} */
+.event{
+    padding:0 120px; 
+    position:relative;
+    top:50px;
+    font-weight: bold;
+    color:#000000;
+}
+.empty-event{
+    background-color:white;
+    color:black;
+}
+td{
+    width:100%;
+    direction: ltr;
+}

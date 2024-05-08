@@ -1,23 +1,34 @@
 import React from "react";
-import logo from "../../images/HewayaLogo.png";
+import logo from "../../images/logoAR.png";
 // import "../header/header.css";
 import "./profile.css";
 import ServiceProviderLogo from "../../images/chessLogo.jpeg";
+import Navbar from "../navbar/navbar";
+
 
 export default function Profile(){
     const joinDate = "2022 june";
     const followers = 321;
     const hobbyist = 121;
     const servicePname ="شطرنج العزيزية"
+    const location ="المدينة المنورة-سلطانة"
     return (
         <div lang="ar" dir="rtl">
-            <header>
+            
+        <div className="top-side">
+        <header>
             <div className="logo">
+                <a href="/home">
                 <img src={logo} />
+                </a>
+                <Navbar/>
             </div>
             </header>
-
             <div className="profile">
+                {/* edit bio */}
+                {/* <a href="#" className="edit-button">
+                    <div className="edit" >تعديل البايو</div>
+                </a> */}
                 <div className="imgContainer">
                     <div className="joinDate"> انضم {joinDate}</div>
                     <img src={ServiceProviderLogo}/>
@@ -46,6 +57,7 @@ export default function Profile(){
                     </div>
                 </div>
             </div>
+            
             <div className="servicePinformation">
                 <div className="buttons">
                     <div className="sendButton">
@@ -54,7 +66,17 @@ export default function Profile(){
                     <div className="followButton">
                     <a href="">متابعة</a>
                     </div>
+                    <div className="location">
+                        <p>{location}</p>
+                    </div>
+                    <div className="rate">
+                        <p>قييم مزود الخدمة</p>
+                    </div>
                 </div>
+            </div>
+            </div>
+            <div className="buttom-side">
+
             </div>
 
             

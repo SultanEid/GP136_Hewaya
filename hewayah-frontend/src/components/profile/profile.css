@@ -1,15 +1,18 @@
 header .logo img{
-    width:100px;
-    height: 100px;
-    position: relative;
-    left:480px;
-
+    width:120px;
+    height: 120px;
+    position: fixed;
+    right:0;
     /* padding:100px; */
 }
-body{
-    background-color: #FAF1E6;
-}
 
+
+.top-side{
+    width:100%;
+    height:auto;
+    background-color: #FAF1E6;
+    
+}
 /* header{
     background-color: #FAF1E6;
 } */
@@ -27,7 +30,7 @@ body{
     border-radius: 50%;
     position: relative;
     right:50px;
-    border: 1px solid black;
+    border: 1px solid rgba(0,0,0,0.5);
 }
 .imgContainer .joinDate{
     margin-right:85px;
@@ -65,7 +68,6 @@ body{
 }
 .servicePinformation{
     position: relative;
-    background-color: #FAF1E6;
     height: 100px;
     bottom:30px;
 }
@@ -97,4 +99,25 @@ body{
     padding:10px 20px;
     border-radius: 30px;
     
+}
+.edit-button{
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+    width:120px;
+    height:30px;
+    background-color: #FF9954;
+    text-align: center;
+    border-radius: 25px;
+    justify-content: center;
+    text-decoration: none;
+    color:black;
+}
+
+.location{
+    padding:0 500px;
+    font-size: 25px;
+}
+.rate{
+    font-size: 25px;
 }

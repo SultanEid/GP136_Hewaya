@@ -1,11 +1,11 @@
 import React from "react";
-import logo from "../../images/HewayaLogo.png";
+import logo from "../../images/logoAR.png";
 import "../login/login.css";
 
 export default function Signup(){
     return (
         <div class="container">
-        <img src={logo} alt="هواية | Hewayah Logo" class="logo"/>
+        <a href="home"><img src={logo} alt="هواية | Hewayah Logo" class="logo"/></a>
         <h2 class="title">إنشاء حساب جديد</h2>
         <form action="signup" method="post">
             <div class="form-group">
@@ -24,10 +24,19 @@ export default function Signup(){
                 <label for="password">كلمة المرور</label>
                 <input type="password" id="password" name="password" required placeholder="ادخل كلمة المرور"/>
             </div>
+            <div class="gender">
+                    <input type="radio" id="male" name="gender" value="male" />
+                    <label htmlFor="male">ذكر</label>
+                    <input type="radio" id="female" name="gender" value="female" />
+                    <label htmlFor="female">انثئ</label>
+            </div>
+    
+                    
+                    
             <div class="form-group">
                 <input type="submit" value="إنشاء الحساب"/>
             </div>
-            <p class="login-link">هل لديك حساب؟ <a href="login">login </a></p>
+            <p class="login-link">هل لديك حساب؟ <a href="login">تسجيل الدخول </a></p>
         </form>
         {/* <p th:text="${passwordErrorMessage}" style="color: red"></p>
         <p th:text="${usernameErrorMessage}" style="color: red"></p>
