@@ -11,63 +11,79 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.time.LocalDateTime;
+//import java.time.LocalDateTime;
 import java.util.List;
-
+import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "service_provider")
-public class ServiceProvider {
+public class ServiceProvider extends User {
     @Id
     @Column(name = "service_provider_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long serviceProviderId;
 
-    @NotNull
-    @Size(max = 255)
-    @Column(name = "service_provider_username", length = 255)
-    private String serviceProviderUsername;
+//    @NotNull
+//    @Size(max = 255)
+//    @Column(name = "service_provider_username", nullable = false, length = 255)
+//    private String serviceProviderUsername;
+//
+//    @Column(name = "bio")
+//    private String bio;
+//
+//    @NotNull
+//    @Size(max = 255)
+//    @Column(name = "password", length = 255)
+//    private String password;
+//
+//    @Email
+//    @NotNull
+//    @Size(max = 255)
+//    @Column(name = "email", length = 255)
+//    private String email;
+//
+//
+//    @Temporal(TemporalType.TIMESTAMP)
+//    @CreationTimestamp
+//    @Column(name = "create_at")
+//    private Date dateCreate;
+//
+//    @Temporal(TemporalType.TIMESTAMP)
+//    @UpdateTimestamp
+//    @Column(name = "update_at")
+//    private Date dateUpdate;
+//
+////    @Temporal(TemporalType.TIMESTAMP)
+////    @CreationTimestamp
+////    @Column(name = "create_at")
+////    private LocalDateTime dateCreate;
+////
+////    @Temporal(TemporalType.TIMESTAMP)
+////    @UpdateTimestamp
+////    @Column(name = "update_at")
+////    private LocalDateTime dateUpdate;
+//
+//    @Column(name = "phone_number")
+//    private Integer phoneNumber;
+//
+//    @NotNull
+//    @Size(max = 255)
+//    @Column(name = "service_provider_name", length = 255)
+//    private String serviceProviderName;
 
-    @Column(name = "bio")
-    private String bio;
+//    @OneToMany(mappedBy = "serviceProvider")
+//    private List<Chat> chats;
 
-    @NotNull
-    @Size(max = 255)
-    @Column(name = "password", length = 255)
-    private String password;
-
-    @Email
-    @NotNull
-    @Size(max = 255)
-    @Column(name = "email", length = 255)
-    private String email;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @CreationTimestamp
-    @Column(name = "create_at")
-    private LocalDateTime dateCreate;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @UpdateTimestamp
-    @Column(name = "update_at")
-    private LocalDateTime dateUpdate;
-
-    @Column(name = "phone_number")
-    private Integer phoneNumber;
-
-    @NotNull
-    @Size(max = 255)
-    @Column(name = "service_provider_name", length = 255)
-    private String serviceProviderName;
-
-    @OneToMany(mappedBy = "serviceProvider")
-    private List<Chat> chats;
-
-    @OneToMany(mappedBy = "serviceProvider")
-    private List<Bill> billEntities;
-
-    @OneToMany(mappedBy = "serviceProvider")
-    private List<Notification> notificationEntities;
+    @ManyToOne
+    @JoinColumn(name ="user_id")
+    private User user;
+//
+//
+//    @OneToMany(mappedBy = "serviceProvider")
+//    private List<Bill> billEntities;
+//
+//    @OneToMany(mappedBy = "serviceProvider")
+//    private List<Notification> notificationEntities;
 }

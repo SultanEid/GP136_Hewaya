@@ -33,17 +33,18 @@ public class HobbyistService {
         Optional<Hobbyist> existingHobbyist = hobbyistRepository.findById(hobbyistId);
         existingHobbyist.ifPresent(hobbyist -> {
             hobbyist.setBirthDate(updatedHobbyist.getBirthDate());
-            hobbyist.setHobbyistUsername(updatedHobbyist.getHobbyistUsername());
+            hobbyist.setUsername(updatedHobbyist.getUsername());
             hobbyist.setPassword(updatedHobbyist.getPassword());
             hobbyist.setEmail(updatedHobbyist.getEmail());
             hobbyist.setPhoneNumber(updatedHobbyist.getPhoneNumber());
-            hobbyist.setFirstName(updatedHobbyist.getFirstName());
-            hobbyist.setLastName(updatedHobbyist.getLastName());
+            hobbyist.setName(updatedHobbyist.getName());
+//            hobbyist.setLastName(updatedHobbyist.getLastName());
             hobbyistRepository.save(hobbyist);
         });
     }
 
     public void deleteHobbyist(Long hobbyistId) {
         hobbyistRepository.deleteById(hobbyistId);
+
     }
 }
