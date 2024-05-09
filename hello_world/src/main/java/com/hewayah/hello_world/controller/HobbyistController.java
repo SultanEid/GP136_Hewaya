@@ -5,7 +5,6 @@ import com.hewayah.hello_world.service.HobbyistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -15,11 +14,18 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/hobbyists")
 public class HobbyistController {
+
     private final HobbyistService hobbyistService;
 
     @Autowired
     public HobbyistController(HobbyistService hobbyistService) {
         this.hobbyistService = hobbyistService;
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Hobbyist> getHobbyistById(@PathVariable Long id) {
+        Optional<Hobbyist> hobbyist = hobbyistService.getHobbyistById(id);
+        return hobbyist.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @GetMapping
@@ -28,22 +34,16 @@ public class HobbyistController {
         return ResponseEntity.ok(hobbyists);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Hobbyist> getHobbyistById(@PathVariable Long id) {
-        Optional<Hobbyist> hobbyist = hobbyistService.getHobbyistById(id);
-        return hobbyist.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
-    }
-
     @PostMapping
-    public ResponseEntity<Hobbyist> createHobbyist(@Valid @RequestBody Hobbyist hobbyist) {
+    public ResponseEntity<Hobbyist> createHobbyist(@RequestBody @Valid Hobbyist hobbyist) {
         Hobbyist createdHobbyist = hobbyistService.createHobbyist(hobbyist);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdHobbyist);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updateHobbyist(@PathVariable Long id, @Validated @RequestBody Hobbyist updatedHobbyist) {
-        hobbyistService.updateHobbyist(id, updatedHobbyist);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Hobbyist> updateHobbyist(@PathVariable Long id, @RequestBody @Valid Hobbyist hobbyist) {
+        Hobbyist updatedHobbyist = hobbyistService.updateHobbyist(id, hobbyist);
+        return ResponseEntity.ok(updatedHobbyist);
     }
 
     @DeleteMapping("/{id}")

@@ -24,7 +24,8 @@ public class Bill {
 
 
     @Column(name = "time")
-    private Date time;
+    @CreationTimestamp
+    private LocalDateTime time;
 
     @Column(name = "event_id")
     private Integer eventId;

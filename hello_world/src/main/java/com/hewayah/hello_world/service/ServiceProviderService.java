@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @Service
 public class ServiceProviderService {
+
     private final ServiceProviderRepository serviceProviderRepository;
 
     @Autowired
@@ -17,31 +18,36 @@ public class ServiceProviderService {
         this.serviceProviderRepository = serviceProviderRepository;
     }
 
-    public List<ServiceProvider> getAllServiceProviders() {
-        return serviceProviderRepository.findAll();
-    }
-
     public Optional<ServiceProvider> getServiceProviderById(Long id) {
         return serviceProviderRepository.findById(id);
     }
 
-    public ServiceProvider saveServiceProvider(ServiceProvider serviceProvider) {
+    public List<ServiceProvider> getAllServiceProviders() {
+        return serviceProviderRepository.findAll();
+    }
+
+    public ServiceProvider createServiceProvider(ServiceProvider serviceProvider) {
         return serviceProviderRepository.save(serviceProvider);
     }
 
-    public void updateServiceProvider(Long id, ServiceProvider updatedServiceProvider) {
-        Optional<ServiceProvider> serviceProvider = serviceProviderRepository.findById(id);
-        serviceProvider.ifPresent(existingServiceProvider -> {
-            existingServiceProvider.setServiceProviderUsername(updatedServiceProvider.getServiceProviderUsername());
-            existingServiceProvider.setBio(updatedServiceProvider.getBio());
-            existingServiceProvider.setPassword(updatedServiceProvider.getPassword());
-            existingServiceProvider.setEmail(updatedServiceProvider.getEmail());
-            existingServiceProvider.setDateCreate(updatedServiceProvider.getDateCreate());
-            existingServiceProvider.setDateUpdate(updatedServiceProvider.getDateUpdate());
-            existingServiceProvider.setPhoneNumber(updatedServiceProvider.getPhoneNumber());
-            existingServiceProvider.setServiceProviderName(updatedServiceProvider.getServiceProviderName());
-            serviceProviderRepository.save(existingServiceProvider);
-        });
+    public ServiceProvider updateServiceProvider(Long id, ServiceProvider updatedServiceProvider) {
+        Optional<ServiceProvider> existingServiceProvider = serviceProviderRepository.findById(id);
+        if (existingServiceProvider.isPresent()) {
+            ServiceProvider serviceProvider = existingServiceProvider.get();
+            serviceProvider.setUsername(updatedServiceProvider.getUsername());
+            serviceProvider.setPassword(updatedServiceProvider.getPassword());
+            serviceProvider.setEmail(updatedServiceProvider.getEmail());
+            serviceProvider.setPhoneNumber(updatedServiceProvider.getPhoneNumber());
+            serviceProvider.setUserType(updatedServiceProvider.getUserType());
+            serviceProvider.setName(updatedServiceProvider.getName());
+            serviceProvider.setBio(updatedServiceProvider.getBio());
+            serviceProvider.setGender(updatedServiceProvider.getGender());
+            // Update additional fields specific to ServiceProvider entity
+
+            return serviceProviderRepository.save(serviceProvider);
+        } else {
+            throw new IllegalArgumentException("ServiceProvider with ID " + id + " not found");
+        }
     }
 
     public void deleteServiceProvider(Long id) {

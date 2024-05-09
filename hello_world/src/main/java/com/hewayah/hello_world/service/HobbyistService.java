@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @Service
 public class HobbyistService {
+
     private final HobbyistRepository hobbyistRepository;
 
     @Autowired
@@ -17,33 +18,40 @@ public class HobbyistService {
         this.hobbyistRepository = hobbyistRepository;
     }
 
-    public List<Hobbyist> getAllHobbyists() {
-        return hobbyistRepository.findAll();
+    public Optional<Hobbyist> getHobbyistById(Long id) {
+        return hobbyistRepository.findById(id);
     }
 
-    public Optional<Hobbyist> getHobbyistById(Long hobbyistId) {
-        return hobbyistRepository.findById(hobbyistId);
+    public List<Hobbyist> getAllHobbyists() {
+        return hobbyistRepository.findAll();
     }
 
     public Hobbyist createHobbyist(Hobbyist hobbyist) {
         return hobbyistRepository.save(hobbyist);
     }
 
-    public void updateHobbyist(Long hobbyistId, Hobbyist updatedHobbyist) {
-        Optional<Hobbyist> existingHobbyist = hobbyistRepository.findById(hobbyistId);
-        existingHobbyist.ifPresent(hobbyist -> {
-            hobbyist.setBirthDate(updatedHobbyist.getBirthDate());
-            hobbyist.setHobbyistUsername(updatedHobbyist.getHobbyistUsername());
+    public Hobbyist updateHobbyist(Long id, Hobbyist updatedHobbyist) {
+        Optional<Hobbyist> existingHobbyist = hobbyistRepository.findById(id);
+        if (existingHobbyist.isPresent()) {
+            Hobbyist hobbyist = existingHobbyist.get();
+            hobbyist.setUsername(updatedHobbyist.getUsername());
             hobbyist.setPassword(updatedHobbyist.getPassword());
             hobbyist.setEmail(updatedHobbyist.getEmail());
             hobbyist.setPhoneNumber(updatedHobbyist.getPhoneNumber());
-            hobbyist.setFirstName(updatedHobbyist.getFirstName());
-            hobbyist.setLastName(updatedHobbyist.getLastName());
-            hobbyistRepository.save(hobbyist);
-        });
+            hobbyist.setUserType(updatedHobbyist.getUserType());
+            hobbyist.setName(updatedHobbyist.getName());
+            hobbyist.setBio(updatedHobbyist.getBio());
+            hobbyist.setGender(updatedHobbyist.getGender());
+            hobbyist.setBirthDate(updatedHobbyist.getBirthDate());
+            // Update additional fields specific to Hobbyist entity
+
+            return hobbyistRepository.save(hobbyist);
+        } else {
+            throw new IllegalArgumentException("Hobbyist with ID " + id + " not found");
+        }
     }
 
-    public void deleteHobbyist(Long hobbyistId) {
-        hobbyistRepository.deleteById(hobbyistId);
+    public void deleteHobbyist(Long id) {
+        hobbyistRepository.deleteById(id);
     }
 }
