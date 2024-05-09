@@ -29,8 +29,7 @@ public class Hobby {
     private String hobbyDescription;
 
 
-    @OneToMany
-    @JoinColumn(name ="event_id")
+    @OneToMany(mappedBy = "hobby")
     private List<EventHobby> eventHobbies;
 
 }

@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-//import java.time.LocalDateTime;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -35,13 +35,13 @@ public class Bill {
     @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp
     @Column(name = "create_at")
-    private Date dateCreate;
+    private LocalDateTime dateCreate;
 
 
     @Temporal(TemporalType.TIMESTAMP)
     @UpdateTimestamp
     @Column(name = "update_at")
-    private Date dateUpdate;
+    private LocalDateTime dateUpdate;
 
 
     // العلاقات الأخرى...

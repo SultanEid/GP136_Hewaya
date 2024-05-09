@@ -8,7 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 //import javax.persistence.*;
-//import java.time.LocalDateTime;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -37,26 +37,16 @@ public class Event {
     @Column(name = "event_price")
     private double eventPrice;
 
-
     @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp
     @Column(name = "create_at")
-    private Date dateCreate;
+    private LocalDateTime dateCreate;
+
 
     @Temporal(TemporalType.TIMESTAMP)
     @UpdateTimestamp
     @Column(name = "update_at")
-    private Date dateUpdate;
-//    @Temporal(TemporalType.TIMESTAMP)
-//    @CreationTimestamp
-//    @Column(name = "create_at")
-//    private LocalDateTime dateCreate;
-//
-//
-//    @Temporal(TemporalType.TIMESTAMP)
-//    @UpdateTimestamp
-//    @Column(name = "update_at")
-//    private LocalDateTime dateUpdate;
+    private LocalDateTime dateUpdate;
 
 
     @OneToMany(mappedBy = "eventEntity")

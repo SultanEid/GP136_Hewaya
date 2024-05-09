@@ -6,11 +6,11 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import java.util.Date;
+
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
-//import java.time.LocalDateTime;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -42,12 +42,12 @@ public class Booking {
     @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp
     @Column(name = "create_at")
-    private Date dateCreate;
+    private LocalDateTime dateCreate;
 
     @Temporal(TemporalType.TIMESTAMP)
     @UpdateTimestamp
     @Column(name = "update_at")
-    private Date dateUpdate;
+    private LocalDateTime dateUpdate;
 
     // Relationships below
     @ManyToOne
