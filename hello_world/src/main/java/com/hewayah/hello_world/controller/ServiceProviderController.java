@@ -29,7 +29,7 @@ public class ServiceProviderController {
         return serviceProvider.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping
+    @GetMapping("/getAllServiceProviders")
     public ResponseEntity<List<User>> getAllServiceProviders() {
         List<User> serviceProviders = serviceProviderService.getAllServiceProviders();
         return ResponseEntity.ok(serviceProviders);
