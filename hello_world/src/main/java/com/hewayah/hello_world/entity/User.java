@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "user_table")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
 
     @Id

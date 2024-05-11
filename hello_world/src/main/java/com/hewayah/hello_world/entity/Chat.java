@@ -24,15 +24,15 @@ public class Chat {
     private LocalDateTime dateCreate;
 
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "service_provider_id")
     private ServiceProvider serviceProvider;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "hobbyist_id")
     private Hobbyist hobbyist ;
 
 
-    @OneToMany(mappedBy = "chat")
+    @OneToMany(mappedBy = "chat" ,cascade = CascadeType.ALL)
     private List<Message>  message;
 }

@@ -21,7 +21,7 @@ public class Message {
     @Column(name = "sent_date")
     private LocalDateTime sentDate;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "chat_id")
     private Chat chat;
 

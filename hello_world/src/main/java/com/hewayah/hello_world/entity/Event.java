@@ -49,9 +49,9 @@ public class Event {
     private LocalDateTime dateUpdate;
 
 
-    @OneToMany(mappedBy = "eventEntity")
+    @OneToMany(mappedBy = "eventEntity",cascade = CascadeType.ALL)
     private List<Booking> bookingEntities;
 
-    @OneToMany(mappedBy = "event")
+    @OneToMany(mappedBy = "event" , cascade = CascadeType.ALL)
     private List<EventHobby> eventHobbies;
 }

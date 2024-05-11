@@ -23,16 +23,16 @@ public class ServiceProvider extends User {
 
     // Getters and Setters for additional fields and relationships
 
-    @OneToMany(mappedBy = "serviceProvider")
+    @OneToMany(mappedBy = "serviceProvider" ,cascade = CascadeType.ALL)
     private List<Chat> chats;
 
-    @OneToMany(mappedBy = "serviceProvider")
+    @OneToMany(mappedBy = "serviceProvider",cascade = CascadeType.ALL)
     private List<Bill> billEntities;
 
-    @OneToMany(mappedBy = "serviceProvider")
+    @OneToMany(mappedBy = "serviceProvider", cascade = CascadeType.ALL)
     private List<Notification> notificationEntities;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;
 

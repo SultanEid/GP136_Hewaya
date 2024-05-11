@@ -1,6 +1,7 @@
 package com.hewayah.hello_world.service;
 
 import com.hewayah.hello_world.entity.ServiceProvider;
+import com.hewayah.hello_world.entity.User;
 import com.hewayah.hello_world.repository.ServiceProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,11 +19,11 @@ public class ServiceProviderService {
         this.serviceProviderRepository = serviceProviderRepository;
     }
 
-    public Optional<ServiceProvider> getServiceProviderById(Long id) {
+    public Optional<User> getServiceProviderById(Long id) {
         return serviceProviderRepository.findById(id);
     }
 
-    public List<ServiceProvider> getAllServiceProviders() {
+    public List<User> getAllServiceProviders() {
         return serviceProviderRepository.findAll();
     }
 
@@ -31,9 +32,9 @@ public class ServiceProviderService {
     }
 
     public ServiceProvider updateServiceProvider(Long id, ServiceProvider updatedServiceProvider) {
-        Optional<ServiceProvider> existingServiceProvider = serviceProviderRepository.findById(id);
+        Optional<User> existingServiceProvider = serviceProviderRepository.findById(id);
         if (existingServiceProvider.isPresent()) {
-            ServiceProvider serviceProvider = existingServiceProvider.get();
+            ServiceProvider serviceProvider = (ServiceProvider) existingServiceProvider.get();
             serviceProvider.setUsername(updatedServiceProvider.getUsername());
             serviceProvider.setPassword(updatedServiceProvider.getPassword());
             serviceProvider.setEmail(updatedServiceProvider.getEmail());

@@ -1,6 +1,7 @@
 package com.hewayah.hello_world.controller;
 
 import com.hewayah.hello_world.entity.ServiceProvider;
+import com.hewayah.hello_world.entity.User;
 import com.hewayah.hello_world.service.ServiceProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,14 +24,14 @@ public class ServiceProviderController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ServiceProvider> getServiceProviderById(@PathVariable Long id) {
-        Optional<ServiceProvider> serviceProvider = serviceProviderService.getServiceProviderById(id);
+    public ResponseEntity<User> getServiceProviderById(@PathVariable Long id) {
+        Optional<User> serviceProvider = serviceProviderService.getServiceProviderById(id);
         return serviceProvider.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @GetMapping
-    public ResponseEntity<List<ServiceProvider>> getAllServiceProviders() {
-        List<ServiceProvider> serviceProviders = serviceProviderService.getAllServiceProviders();
+    public ResponseEntity<List<User>> getAllServiceProviders() {
+        List<User> serviceProviders = serviceProviderService.getAllServiceProviders();
         return ResponseEntity.ok(serviceProviders);
     }
 

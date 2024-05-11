@@ -29,7 +29,7 @@ public class Hobby {
     private String hobbyDescription;
 
 
-    @OneToMany(mappedBy = "hobby")
+    @OneToMany(mappedBy = "hobby" ,cascade = CascadeType.ALL)
     private List<EventHobby> eventHobbies;
 
 }

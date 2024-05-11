@@ -47,16 +47,17 @@ public class Bill {
 
     // العلاقات الأخرى...
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "hobbyist_id")
     private Hobbyist hobbyist;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "service_provider_id")
     private ServiceProvider serviceProvider;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "booking_id")
     private Booking booking;
+
 
 }

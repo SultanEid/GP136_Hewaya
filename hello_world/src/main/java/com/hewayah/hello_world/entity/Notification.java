@@ -26,7 +26,7 @@ public class Notification {
     @Column(name = "notification_message", columnDefinition = "TEXT")
     private String notificationMessage;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "service_provider_id")
     @NotNull
     private ServiceProvider serviceProvider;

@@ -16,11 +16,11 @@ public class EventHobby {
     @Column(name = "event_hobby_id")
     private int eventHobbyId;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "event_id")
     private Event event;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "hobby_id")
     private Hobby hobby;
 

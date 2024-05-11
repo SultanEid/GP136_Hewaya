@@ -24,15 +24,15 @@ public class Hobbyist extends User {
     private Date birthDate;
 
     // Relationships specific to Hobbyist class
-    @OneToMany(mappedBy = "hobbyist")
+    @OneToMany(mappedBy = "hobbyist" ,cascade = CascadeType.ALL)
     private List<Chat> chats;
 
-    @OneToMany(mappedBy = "hobbyist1")
+    @OneToMany(mappedBy = "hobbyist1", cascade = CascadeType.ALL)
     private List<Booking> booking;
 
-    @OneToMany(mappedBy = "hobbyist")
+    @OneToMany(mappedBy = "hobbyist",cascade = CascadeType.ALL)
     private List<Bill> bill;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;
 

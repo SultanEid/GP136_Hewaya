@@ -50,14 +50,14 @@ public class Booking {
     private LocalDateTime dateUpdate;
 
     // Relationships below
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "hobbyist_id")
     private Hobbyist hobbyist1 ;
 
-    @OneToOne(mappedBy = "booking")
+    @OneToOne(mappedBy = "booking" , cascade = CascadeType.ALL)
     private Bill bill;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "event_id")
     private Event eventEntity;
 }
