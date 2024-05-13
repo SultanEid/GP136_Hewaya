@@ -10,6 +10,9 @@ import SignupServiceProvider from "../src/components/signup-serviceP/signup-serv
 import Payment from "../src/components/payment/payment.js";
 import SelectHobby from "../src/components/selection/select.js";
 import Forget from "../src/components/forgetPassword/forget.js";
+import EditEvent from "../src/components/edit-event/edit-event.js"
+import AddEvent from "../src/components/add-event/add-event.js"
+
 
 import { createBrowserRouter, 
   RouterProvider,
@@ -51,6 +54,14 @@ import { createBrowserRouter,
 {
   path:"/forget-password",
   element: <Forget/>
+},
+{
+  path:"/add-event",
+  element: <AddEvent/>
+},
+{
+  path:"/edit-event",
+  element: <EditEvent/>
 },
   
   ])

@@ -16,7 +16,7 @@ import HobbyistPage from "./components/hobbyist-page/hobbyist";
 export default function App() {
   
   
-  const userType = "Service Proider";
+  const userType = "Service Povider";
   return (
       
     <div>

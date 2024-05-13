@@ -9,6 +9,7 @@ import Event from "../event/event.js"
 import chessLogo from "../../images/chessLogo.jpeg";
 import bikeLogo from "../../images/bikeLogo1.jpg";
 import axios from "axios";
+import Footer from "../footer/footer.js"
 
 export default function ServicePage() {
 
@@ -79,7 +80,10 @@ export default function ServicePage() {
             
           </div> */}
       </div>
-      
+      <div className="footer">
+      <Footer/>
+      </div>
+         
     </div>
     
   );

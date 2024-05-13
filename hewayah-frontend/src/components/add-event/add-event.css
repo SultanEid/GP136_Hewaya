@@ -6,7 +6,6 @@
     padding:40px;
     border-radius:20px;
     position:relative;
-
     justify-content: center ;
     text-align: center;
     margin: auto;
@@ -21,14 +20,16 @@
 }
 .cancel-button {
     width:100%;
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.67);
     padding:10px;
     text-align: center;
     font-size: 16px;
+    color:#fff;
     
 }
 .cancel-button a{
     text-decoration: none;
     color:white;
+    text-decoration: none;
 }
 

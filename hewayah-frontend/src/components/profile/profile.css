@@ -1,7 +1,7 @@
 header .logo img{
     width:120px;
     height: 120px;
-    position: fixed;
+    position: absolute;
     right:0;
     /* padding:100px; */
 }
@@ -120,4 +120,41 @@ header .logo img{
 }
 .rate{
     font-size: 25px;
+}
+.title-hobby, .title-users{
+    padding:20px;
+}
+.name-of-hobbies, .name-of-users{
+    display:flex;
+    padding:20px;
+}
+.hobby{
+    padding:10px 40px;
+    border:1px solid black;
+    margin:0 20px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+hr{
+    width:350px;
+    border:2px solid black;
+}
+
+.user{
+    position: relative;
+    top:110px;
+    left:85px;
+    border:1px solid rgba(0,0,0,0.5);
+    width:80px;
+    height:30px;
+    text-align: center;
+    border-radius:20px;
+    font-weight: bold;
+    /* padding:5px; */
+}
+.user-icon{
+    width:100px;
+    height:100px;
+    border-radius: 50%;
+    border:1px solid black;
 }

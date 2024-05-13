@@ -48,7 +48,7 @@ export default function Signup(){
 
     return (
         <div class="container" lang="ar" dir="rtl">
-        <a href="/home"><img src={logo} alt="هواية | Hewayah Logo" class="logo-hewayah"/></a>
+        <a href="/home"><img src={logo} alt="هواية | Hewayah Logo" class="logo"/></a>
         <h2 class="title">أنضم كمزود خدمة</h2>
         <hr/>
         <form onSubmit={(event) => onSubmit(event)}>

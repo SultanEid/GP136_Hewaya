@@ -9,6 +9,8 @@ import Event from "../event/event.js"
 import chessLogo from "../../images/chessLogo.jpeg";
 import bikeLogo from "../../images/bikeLogo1.jpg";
 import axios from "axios";
+import Footer from "../footer/footer.js"
+
 
 export default function HobbyistPage() {
   const [serviceProvider, setSeviceProvider] = useState([]);
@@ -33,7 +35,7 @@ export default function HobbyistPage() {
       <Header/>
       <Search/>
       <div className="service-p-container">
-          <ServiceProviderLogo serviceProvideName="شطرنج العزيزية"  ServiceLogo={chessLogo}/>
+          {/* <ServiceProviderLogo serviceProvideName="شطرنج العزيزية"  ServiceLogo={chessLogo}/> */}
           <div className="event-line">
             <table>
               <tbody>
@@ -53,13 +55,13 @@ export default function HobbyistPage() {
               </tbody>
             </table>
           </div>
-          <ServiceProviderLogo serviceProvideName="شطرنج العزيزية"  ServiceLogo={chessLogo}/>
+          <ServiceProviderLogo serviceProvideName="اسطبل العزيزية"  ServiceLogo={chessLogo}/>
           <div className="event-line">
             <table>
               <tbody>
             <tr>
-            <td><Event hobbyName="شيش" numberOfHobbyist="15" fullHobbyist="15" age="+12" time="4:20pm"/></td>
-            <td><Event hobbyName="بالوت" numberOfHobbyist="13" fullHobbyist="15" age="+16" time="6:20pm"/></td>
+            <td><Event hobbyName="ركوب الخيل" numberOfHobbyist="15" fullHobbyist="15" age="+12" time="4:20pm"/></td>
+            <td><Event hobbyName="رماية الأسهم" numberOfHobbyist="13" fullHobbyist="15" age="+16" time="6:20pm"/></td>
             </tr>
               </tbody>
             </table>
@@ -82,33 +84,14 @@ export default function HobbyistPage() {
             
           </div>
       </div>
+      <div className="footer">
+          <Footer/>
+      </div>
       
     </div>
     
   );
 }
 
-
-function Headerr(){
-  return(
-    <header lang="ar" dir="rtl">
-      <Button>myButton</Button>
-      <ul>
-        <li>الصفحة الرئيسة</li>
-        <li>من نحن</li>
-        <li>تواصل معنا</li>
-        <li>عن الهوايات</li>
-      </ul>
-    </header>
-  )
-}
-
-function ServiceProfile(){
-  return(
-    <div className="profileContainer">
-        <img src="images/acme.png" alt="hh"/>
-    </div>
-  )
-}
 
 

@@ -1,10 +1,10 @@
 
-import "./add-event.css"
+import "../add-event/add-event.css"
 
-export default function AddEvent(){
+export default function EditEvent(){
     return(
         <div className="add-event-container" lang="ar" dir="rtl">
-            <h2 className="title">أضافة حدث</h2>
+            <h2 className="title">تعديل الحدث </h2>
              <form action="signup" method="post">
            
             <div class="form-group">
@@ -40,16 +40,14 @@ export default function AddEvent(){
                 </div>
             </div>
             <div class="form-group">
-                <input type="submit" value="انشاء حدث"/>
+                <input type="submit" value="حفظ التعديلات"/>
                 
             </div>
-           
-                <a href="home" >
+            <a href="home" >
                     <div className="cancel-button">
                             الغاء
                     </div>
                 </a>
-            
             
         </form>
         </div>

@@ -1,0 +1,39 @@
+.footer-container {
+    background-color: #434141;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .footer-container div {
+    margin-bottom: 10px;
+  }
+  
+  .footer-container h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .footer-container ul {
+    list-style-type: none;
+    display: flex;
+    direction: ltr;
+    padding: 0;
+  }
+  
+  .footer-container li {
+    margin-bottom: 5px;
+    padding:0 20px;
+    color:antiquewhite;
+  }
+  
+  .footer-container p {
+    font-size: 14px;
+    color: #ffffff;
+  }
+  a{
+    text-decoration: none;
+    
+  }
+  li:hover{
+    color:rgb(6, 6, 228);
+  }

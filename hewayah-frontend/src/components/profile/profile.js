@@ -4,6 +4,8 @@ import logo from "../../images/logoAR.png";
 import "./profile.css";
 import ServiceProviderLogo from "../../images/chessLogo.jpeg";
 import Navbar from "../navbar/navbar";
+import icon from "../../images/profile-icon.jpeg";
+import Footer from "../footer/footer";
 
 
 export default function Profile(){
@@ -12,6 +14,7 @@ export default function Profile(){
     const hobbyist = 121;
     const servicePname ="شطرنج العزيزية"
     const location ="المدينة المنورة-سلطانة"
+    const users =["turki", "Abdallah", "naif21", "azozo29"]
     return (
         <div lang="ar" dir="rtl">
             
@@ -76,10 +79,35 @@ export default function Profile(){
             </div>
             </div>
             <div className="buttom-side">
-
+                    <div className="title-hobby">
+                        <h2>الهوايات</h2>
+                        <hr/>
+                    </div>
+                    <div className="name-of-hobbies">
+                        <p className="hobby">رسم</p>
+                        <p className="hobby">ركوب الخيل</p>
+                        <p className="hobby">صناعة الفخار</p>
+                        <p className="hobby">الرمي بالأسهم</p>
+                    </div>
+                    <div className="title-users">
+                        <h2>الاعضاء المميزين</h2>
+                        <hr/>
+                    </div>
+                    <div className="name-of-users">
+                        <img className="user-icon" src={icon}/>
+                        <p className="user">{users[0]}</p>
+                        <img className="user-icon" src={icon}/>
+                        <p className="user">{users[1]}</p>
+                        <img className="user-icon" src={icon}/>
+                        <p className="user">{users[2]}</p>
+                        <img className="user-icon" src={icon}/>
+                        <p className="user">{users[3]}</p>
+                    </div>
             </div>
 
-            
+            <div className="footer">
+                <Footer/>
+            </div>
         </div>
     )
 }
